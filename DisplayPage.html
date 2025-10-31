@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Computation - Display</title>
+    <meta name="description" content="Payroll computation breakdown with deductions">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container display-page">
+        <button onclick="goBack()" class="btn-back">
+            ← Back to Input
+        </button>
+
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Payroll Computation</h1>
+                <p class="card-description">Detailed breakdown of salary and deductions</p>
+            </div>
+            <div class="card-content">
+                <!-- Employee Information -->
+                <div class="section">
+                    <h3 class="section-title">Employee Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <p class="info-label">Employee ID</p>
+                            <p class="info-value" id="displayEmployeeId"></p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Name</p>
+                            <p class="info-value" id="displayEmployeeName"></p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Position</p>
+                            <p class="info-value" id="displayEmployeePosition"></p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Rate Per Day</p>
+                            <p class="info-value" id="displayRate"></p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Days Worked</p>
+                            <p class="info-value" id="displayDaysWorked"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="separator"></div>
+
+                <!-- Gross Pay -->
+                <div class="section">
+                    <h3 class="section-title">Gross Pay</h3>
+                    <div class="gross-pay-box">
+                        <p class="computation-formula" id="grossPayFormula"></p>
+                        <p class="amount-large green" id="grossPayAmount"></p>
+                    </div>
+                </div>
+
+                <div class="separator"></div>
+
+                <!-- Deductions -->
+                <div class="section">
+                    <h3 class="section-title">Deductions</h3>
+                    <div class="deductions-list">
+                        <div class="deduction-item">
+                            <div>
+                                <p class="deduction-name">SSS (5%)</p>
+                                <p class="deduction-formula" id="sssFormula"></p>
+                            </div>
+                            <p class="deduction-amount" id="sssAmount"></p>
+                        </div>
+
+                        <div class="deduction-item">
+                            <div>
+                                <p class="deduction-name">Pag-ibig (3%)</p>
+                                <p class="deduction-formula" id="pagibigFormula"></p>
+                            </div>
+                            <p class="deduction-amount" id="pagibigAmount"></p>
+                        </div>
+
+                        <div class="deduction-item">
+                            <div>
+                                <p class="deduction-name">PhilHealth (2%)</p>
+                                <p class="deduction-formula" id="philhealthFormula"></p>
+                            </div>
+                            <p class="deduction-amount" id="philhealthAmount"></p>
+                        </div>
+
+                        <div class="deduction-item">
+                            <div>
+                                <p class="deduction-name">Tax (5%)</p>
+                                <p class="deduction-formula" id="taxFormula"></p>
+                            </div>
+                            <p class="deduction-amount" id="taxAmount"></p>
+                        </div>
+
+                        <div class="separator-small"></div>
+
+                        <div class="total-deduction">
+                            <p class="deduction-name">Total Deductions</p>
+                            <p class="deduction-amount-large" id="totalDeductionAmount"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="separator"></div>
+
+                <!-- Net Pay -->
+                <div class="section">
+                    <h3 class="section-title">Net Pay</h3>
+                    <div class="net-pay-box">
+                        <p class="computation-formula" id="netPayFormula"></p>
+                        <p class="amount-xlarge blue" id="netPayAmount"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Load and display data when page loads
+        window.onload = function() {
+            loadPayrollData();
+        };
+    </script>
+</body>
+</html>
